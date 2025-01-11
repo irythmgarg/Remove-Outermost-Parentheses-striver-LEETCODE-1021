@@ -1,0 +1,30 @@
+#include <string>
+using namespace std;
+
+class Solution {
+public:
+    string removeOuterParentheses(string s) {
+        int opening = 0;        // Counter for opening parentheses
+        int closing = 0;        // Counter for closing parentheses
+        string result = "";    // Result string to store the final output
+        int start = 0;          // Start index of the current primitive substring
+
+        for (int i = 0; i < s.length(); i++) {
+            if (s[i] == '(')
+                opening++;     // Increment opening counter for '(' character
+            else
+                closing++;     // Increment closing counter for ')' character
+
+            if (opening == closing) { // Found a balanced primitive substring
+                // Append the inner part of the substring to the result
+                result += s.substr(start + 1, i - start - 1);
+                // Update the start index for the next primitive substring
+                start = i + 1;
+                // Reset counters for the next substring
+                opening = 0;
+                closing = 0;
+            }
+        }
+        return result; // Return the final processed string
+    }
+};
