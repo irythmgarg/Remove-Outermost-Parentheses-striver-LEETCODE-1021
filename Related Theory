@@ -1,0 +1,14 @@
+// Problem Statement:
+// Given a valid parentheses string, remove the outermost parentheses of every primitive valid parentheses substring.
+// A primitive valid parentheses substring is a non-empty substring that is valid and cannot be split into smaller valid parts.
+
+// Theory:
+// The goal is to track the balance between opening and closing parentheses while iterating through the string.
+// When a balance is achieved (i.e., opening == closing), it indicates the end of a primitive substring.
+// Remove the outermost parentheses by skipping the first and last characters of each primitive substring.
+
+// Time Complexity:
+// O(n) - We traverse the string once to process each character.
+
+// Space Complexity:
+// O(1) - Additional space used is constant (only variables for counters and indices).
